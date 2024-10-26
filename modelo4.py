@@ -12,7 +12,7 @@ from keras.callbacks import EarlyStopping, ModelCheckpoint
 import matplotlib.pyplot as plt
 
 # Ruta donde se encuentra la base de datos descargada
-data_dir = '/home/pipesolorzano/Documentos/Base_de_datos/Datos_guardados'
+data_dir = '/home/Documentos/Base_de_datos/Datos_guardados'
 
 # Cargar data_matrix y metadata
 data_matrix_path = os.path.join(data_dir, 'data_matrix.npy')
@@ -138,7 +138,7 @@ val_generator = DataGenerator(X_val, y_val, batch_size=4)
 
 # Definir callbacks
 early_stopping = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
-model_checkpoint = ModelCheckpoint(filepath='/home/pipesolorzano/Documentos/Base_de_datos/Datos_guardados/model_bestIV.h5', 
+model_checkpoint = ModelCheckpoint(filepath='/home/Documentos/Base_de_datos/Datos_guardados/model_bestIV.h5', 
                                     save_best_only=True, monitor='val_loss')
 
 # Entrenar el modelo
@@ -150,12 +150,12 @@ history = model.fit(
 )
 
 # Guardar el modelo completo
-model_path = '/home/pipesolorzano/Documentos/Base_de_datos/Datos_guardados/model_completeIV.h5'
+model_path = '/home/Documentos/Base_de_datos/Datos_guardados/model_completeIV.h5'
 model.save(model_path)
 print(f'Model complete saved to {model_path}')
 
 # Guardar solo los pesos del modelo
-weights_path = '/home/pipesolorzano/Documentos/Base_de_datos/Datos_guardados/weights_onlyIV.h5'
+weights_path = '/home/Documentos/Base_de_datos/Datos_guardados/weights_onlyIV.h5'
 model.save_weights(weights_path)
 print(f'Model weights saved to {weights_path}')
 
@@ -209,6 +209,6 @@ plt.ylabel('Precisión')
 plt.legend()
 
 plt.tight_layout()
-plt.savefig('/home/pipesolorzano/Documentos/Base_de_datos/Datos_guardados/curvas_entrenamientoIV.png')
+plt.savefig('/home/Documentos/Base_de_datos/Datos_guardados/curvas_entrenamientoIV.png')
 plt.show()
 
